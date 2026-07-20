@@ -7,7 +7,7 @@
 <style>
   :root{
     --ink:#16233b; --ink-soft:#4a5872; --line:#dde3ee; --accent:#0b5cd6;
-    --bg:#ffffff; --draft-bg:#fdecec; --draft-line:#d64545;
+    --bg:#ffffff;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);
@@ -17,8 +17,9 @@
   .wrap{max-width:46rem;margin:0 auto;padding:2rem 1.25rem 3rem}
   .crumb{font-size:.88rem;color:var(--ink-soft)}
   h1{font-size:1.5rem;letter-spacing:-.01em;margin:.4rem 0 1rem}
-  .draft-banner{border:2px solid var(--draft-line);background:var(--draft-bg);border-radius:8px;
-    padding:1rem 1.1rem;margin:0 0 1.5rem;font-weight:600}
+  h2{font-size:1.12rem;margin:2rem 0 .5rem;padding-top:1.1rem;border-top:1px solid var(--line)}
+  code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9em}
+  ul{padding-left:1.3rem} li{margin:.3rem 0}
   footer{max-width:46rem;margin:0 auto;padding:1.25rem;border-top:1px solid var(--line);
     color:var(--ink-soft);font-size:.85rem}
 </style>
@@ -29,30 +30,43 @@
   <p class="crumb"><a href="index.html">CRA Reporting Copilot</a> / Privacy policy</p>
   <h1>Privacy Policy</h1>
 
-  <!-- ============================================================
-       PUBLISH GATE — 弁護士承認前はこのページを公開したまま審査提出しないこと。
-       手順:
-       1. 弁護士承認済みのプライバシーポリシー本文(COWORK-4 EN最終版)を
-          下の INSERT マーカーの位置に貼り付ける。
-       2. 下の .draft-banner の <div> を丸ごと削除する。
-       3. 最終更新日を実日付にする。
-       ============================================================ -->
-  <div class="draft-banner">
-    DRAFT PLACEHOLDER — this page must be replaced with the lawyer-approved
-    privacy policy before the Marketplace listing is submitted. Do not publish as-is.
-  </div>
+  <p><em>Last updated: 20 July 2026</em></p>
 
-  <p><em>Last updated: DATE_HERE</em></p>
-
-  <!-- ======== INSERT LAWYER-APPROVED PRIVACY POLICY TEXT BELOW THIS LINE ======== -->
-
-  <p>[Approved COWORK-4 privacy policy text goes here. Expected coverage, for orientation only:
-  processing entirely inside the customer's Atlassian tenant (Forge compute and storage);
-  no external egress; no LLM; KEV data bundled with the app, not fetched;
-  what the app stores (register, drafts, logs) and retention;
-  what the developer can and cannot access; contact point.]</p>
-
-  <!-- ======== INSERT LAWYER-APPROVED PRIVACY POLICY TEXT ABOVE THIS LINE ======== -->
+    <h2>1. Scope
+This Privacy Policy explains how the Atlassian Forge app <strong>CRA Reporting Copilot</strong> (the "App"), provided by Kazunari Itagaki, handles data. The App is a compliance-support tool that assists manufacturers in meeting the reporting obligations under Article 14 of Regulation (EU) 2024/2847 (the Cyber Resilience Act, "CRA"). It is not legal advice, and the customer (the manufacturer) remains solely responsible for determining whether and when to report, for preparing submissions, and for meeting statutory deadlines.</h2>
+  <h2>2. Data-handling model: processing stays inside your Atlassian tenant
+The App runs entirely on the <strong>Atlassian Forge</strong> platform inside <strong>your own Atlassian Cloud tenant</strong>. As a result:</h2>
+  <ul>
+    <li>All data the App reads, computes on, or stores is <strong>processed and stored inside your Atlassian tenant</strong>. We do not receive, collect, or transmit your data to any server operated by us or by any third party outside Atlassian's platform.</li>
+    <li>The App has <strong>no external network egress</strong>. It does not make outbound calls to the internet, to us, or to any analytics, advertising, or telemetry service.</li>
+    <li>The App does <strong>not</strong> use any large language model (LLM) or other external AI service. All logic runs locally within Forge.</li>
+  </ul>
+  <h2>3. What the App accesses
+The App requests only the following Forge scopes, and nothing more:</h2>
+  <ul>
+    <li><strong><code>read:jira-work</code></strong> — read-only access to Jira work items so the App can analyze product/asset information relevant to CRA reporting. The App does not modify your Jira data through this scope.</li>
+    <li><strong><code>storage:app</code></strong> — the App's own storage area inside your Atlassian tenant, used to hold the App's working data, classification results, drafts, and usage metrics.</li>
+  </ul>
+  <p>The App does <strong>not</strong> request access to user account credentials, email contents, billing information, or any scope beyond the two listed above.</p>
+  <h2>4. Reference data (KEV and similar) is a bundled static snapshot
+Reference datasets used for analysis (for example, a Known Exploited Vulnerabilities / "KEV"-type catalog) are shipped <strong>inside the App as a static snapshot</strong>. The App does <strong>not</strong> make any live external connection to fetch or refresh this data. Because the snapshot is fixed at the time of each App release, it may not reflect the most current published state of the source; the snapshot's as-of date is always shown in the App so its freshness is never overstated.</h2>
+  <h2>5. Measurement / usage metrics stay inside Forge Storage
+Any usage measurement the App performs (for example, counts of analyses run, feature usage, or error events) is written <strong>only to <code>storage:app</code> inside your Atlassian tenant</strong>. Metrics are <strong>not</strong> transmitted to us or to any external analytics provider. We do not have a mechanism to read your in-tenant metrics remotely.</h2>
+  <p><strong>** Separately from in-App metrics: as an Atlassian Marketplace vendor, the Provider receives from </strong>Atlassian** certain Marketplace-level information about installations and licenses (e.g., licensing/transaction reports used for billing and support). That information originates in Atlassian's Marketplace systems, not inside your tenant, and does not include your Jira content or the App's in-tenant metrics.</p>
+  <h2>6. Retention
+- <strong>In-tenant App data</strong> (classification results, drafts, working data, metrics) is retained inside your Atlassian tenant's <code>storage:app</code> for as long as the App is installed, or until you delete it, whichever is earlier.
+- On <strong>uninstall</strong>, App data in <code>storage:app</code> becomes <strong>immediately unavailable to the App</strong> — a reinstall does <strong>not</strong> automatically restore prior data; it starts empty. At the Atlassian platform level, the data is <strong>soft-deleted and retained for 28 days</strong>, after which it is disposed of under Atlassian's data retention and disposal policy. Recovery of the prior data is possible <strong>only</strong> via a manual Atlassian support request to re-link the data to a reinstalled App, submitted <strong>within 21 days of uninstallation</strong> and with the customer's consent; if no such request is made within that window, the data cannot be recovered. (The <strong>28-day</strong> platform retention window and the <strong>21-day</strong> deadline to *request* re-linking are two distinct periods.)</h2>
+  <h2>7. No personal data sale; no advertising
+We do not sell, rent, or share your data, and we do not use it for advertising. Because the App does not transmit your data out of your tenant, there is no data for us to sell or share.</h2>
+  <h2>8. Your role as data controller
+Because processing occurs inside your Atlassian tenant, <strong>you (the customer) act as the controller</strong> of any personal data contained in your Jira work items that the App reads. The App is a tool operating within your environment rather than a service to which you transfer data.</h2>
+  <h2>8-bis. Personal data received via support
+When you contact support, information you choose to share with us (e.g., screenshots, exported files, log excerpts) may contain personal data. We process such information <strong>solely</strong> to handle your support request, and delete it after <code>90 days after the request is resolved</code>. This is separate from in-product processing, in which we do not receive your tenant content.</h2>
+  <h2>9. Contact
+Questions about this Policy: <a href="mailto:support@complydraft.com">support@complydraft.com</a>.</h2>
+  <h2>10. Changes
+We may update this Policy when the App changes. Material changes will be reflected in the version and date above.</h2>
+  <p>---</p>
 </div>
 <footer>
   CRA Reporting Copilot is a compliance-support tool. It does not provide legal advice and does not guarantee fulfillment of your reporting obligations. Responsibility for what you submit remains with you.

@@ -7,7 +7,7 @@
 <style>
   :root{
     --ink:#16233b; --ink-soft:#4a5872; --line:#dde3ee; --accent:#0b5cd6;
-    --bg:#ffffff; --draft-bg:#fdecec; --draft-line:#d64545;
+    --bg:#ffffff;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);
@@ -17,8 +17,9 @@
   .wrap{max-width:46rem;margin:0 auto;padding:2rem 1.25rem 3rem}
   .crumb{font-size:.88rem;color:var(--ink-soft)}
   h1{font-size:1.5rem;letter-spacing:-.01em;margin:.4rem 0 1rem}
-  .draft-banner{border:2px solid var(--draft-line);background:var(--draft-bg);border-radius:8px;
-    padding:1rem 1.1rem;margin:0 0 1.5rem;font-weight:600}
+  h2{font-size:1.12rem;margin:2rem 0 .5rem;padding-top:1.1rem;border-top:1px solid var(--line)}
+  code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9em}
+  ul{padding-left:1.3rem} li{margin:.3rem 0}
   footer{max-width:46rem;margin:0 auto;padding:1.25rem;border-top:1px solid var(--line);
     color:var(--ink-soft);font-size:.85rem}
 </style>
@@ -29,29 +30,53 @@
   <p class="crumb"><a href="index.html">CRA Reporting Copilot</a> / Terms of use</p>
   <h1>Terms of Use (EULA)</h1>
 
-  <!-- ============================================================
-       PUBLISH GATE — 弁護士承認前はこのページを公開したまま審査提出しないこと。
-       手順:
-       1. 弁護士承認済みの利用規約/EULA本文(COWORK-4 EN最終版)を
-          下の INSERT マーカーの位置に貼り付ける。
-       2. 下の .draft-banner の <div> を丸ごと削除する。
-       3. 最終更新日を実日付にする。
-       ============================================================ -->
-  <div class="draft-banner">
-    DRAFT PLACEHOLDER — this page must be replaced with the lawyer-approved
-    terms of use before the Marketplace listing is submitted. Do not publish as-is.
-  </div>
+  <p><em>Last updated: 20 July 2026</em></p>
 
-  <p><em>Last updated: DATE_HERE</em></p>
-
-  <!-- ======== INSERT LAWYER-APPROVED TERMS/EULA TEXT BELOW THIS LINE ======== -->
-
-  <p>[Approved COWORK-4 terms/EULA text goes here. Expected coverage, for orientation only:
-  license grant and restrictions; disclaimer that the app is a compliance-support tool and
-  not legal advice; no guarantee of fulfillment of reporting obligations — responsibility
-  remains with the customer; limitation of liability; no SLA; governing law; changes to terms.]</p>
-
-  <!-- ======== INSERT LAWYER-APPROVED TERMS/EULA TEXT ABOVE THIS LINE ======== -->
+    <h2>1. Agreement and acceptance
+These Terms govern your use of the Atlassian Forge app <strong>CRA Reporting Copilot</strong> (the "App") provided by Kazunari Itagaki ("Provider"). By installing or using the App, the entity on whose behalf it is installed (the "Customer", "you") agrees to these Terms. If you do not agree, do not install or use the App.</h2>
+  <h2>2. What the App is — and what it is not
+The App is a <strong>compliance-support tool</strong>. It assists with meeting the reporting obligations under Article 14 of Regulation (EU) 2024/2847 (the Cyber Resilience Act, "CRA") — for example, by organizing information, drafting report text aligned to published reporting data fields, and computing indicative timelines.</h2>
+  <p><strong>The App is not legal advice, and is not a substitute for legal, regulatory, or professional judgment.</strong> In particular:</p>
+  <ul>
+    <li>The App does <strong>not</strong> make the final determination of whether a given vulnerability or incident is reportable. Borderline cases are deliberately routed to a <strong>"human confirmation required"</strong> state rather than auto-decided.</li>
+    <li>The App does <strong>not</strong> submit reports to the ENISA Single Reporting Platform (SRP) or any authority on your behalf. A human must <strong>export</strong> the App's output and submit it. The App does not perform automatic submission.</li>
+    <li>The final responsibility for <strong>determining whether and when to report, for the content of any submission, and for meeting statutory deadlines under the CRA, rests entirely with the Customer as the manufacturer.</strong></li>
+  </ul>
+  <h2>3. License grant
+Subject to these Terms and to your compliance with the Atlassian Marketplace terms, the Provider grants you a non-exclusive, non-transferable, revocable license to install and use the App within your Atlassian Cloud tenant for your internal business purposes for the duration of a valid subscription/installation.</h2>
+  <h2>4. Restrictions
+You may not (a) reverse engineer, decompile, or attempt to extract source code except to the extent permitted by mandatory law; (b) resell, sublicense, or provide the App as a service to third parties; (c) remove or alter notices, disclaimers, or attributions; or (d) use the App in violation of applicable law or the Atlassian Marketplace terms.</h2>
+  <h2>5. Customer responsibilities
+You are responsible for: (a) all reporting decisions and submissions under the CRA; (b) the accuracy and completeness of data in your Atlassian tenant that the App relies on; (c) independently verifying any timeline, classification, or draft the App produces before relying on it; (d) obtaining your own qualified legal and regulatory advice; and (e) meeting all statutory deadlines. The App's outputs are <strong>inputs to your judgment, not conclusions you may rely on without verification.</strong></h2>
+  <h2>6. Reference data and accuracy limitations
+Reference datasets (e.g., a KEV-type catalog) are shipped as a <strong>static snapshot</strong> bundled with the App, with <strong>no live external connection</strong>. The snapshot may be <strong>out of date</strong> relative to the source at any given moment. Timelines and classifications the App computes are <strong>indicative</strong> and depend on inputs, on interpretive questions that remain unsettled (including guidance still in draft form), and on facts only the Customer can confirm. The Provider does not warrant that any output is correct, complete, or current.</h2>
+  <h2>7. No warranty ("AS IS")
+To the maximum extent permitted by applicable law, the App is provided <strong>"AS IS" and "AS AVAILABLE," without warranties of any kind</strong>, whether express, implied, or statutory, including any implied warranties of merchantability, fitness for a particular purpose, accuracy, or non-infringement, and any warranty that the App will meet your requirements or that its outputs will be error-free or will satisfy any regulatory obligation.</h2>
+  <h2>8. Limitation of liability
+To the maximum extent permitted by applicable law:</h2>
+  <ul>
+    <li>The Provider shall <strong>not</strong> be liable for any indirect, incidental, special, consequential, or punitive damages, or for lost profits, lost data, business interruption, <strong>regulatory fines or penalties</strong>, or for any missed reporting deadline or reporting failure, arising out of or relating to the App or these Terms, even if advised of the possibility of such damages.</li>
+    <li>The Provider's <strong>total aggregate liability</strong> for all claims arising out of or relating to the App or these Terms shall not exceed <strong>the total fees paid by the Customer for the App in the twelve (12) months immediately preceding the event giving rise to the claim</strong> (or, if the App was provided at no charge, JPY 10,000).</li>
+  </ul>
+  <h2>8-bis. Indemnity
+To the extent permitted by applicable law, you agree to indemnify the Provider against third-party claims arising from your misuse of the App, the data you place in your Atlassian tenant, or your compliance decisions and submissions.</h2>
+  <h2>9. No service level agreement (SLA)
+The App is provided <strong>without any service level agreement</strong>. The Provider makes <strong>no commitment</strong> as to uptime, availability, response time, support responsiveness, maintenance windows, or the timing of updates (including updates to bundled reference snapshots). The App runs on the Atlassian Forge platform, and availability depends on Atlassian's platform, which is outside the Provider's control.</h2>
+  <h2>10. Updates and changes
+The Provider may update, modify, or discontinue the App or any feature at any time. Reference-data snapshots are updated only when a new App version is released; the Provider does not commit to any update frequency.</h2>
+  <h2>11. Fees
+Fees (if any) are as stated on the Atlassian Marketplace listing and are handled through Atlassian's billing. Taxes are your responsibility except as required otherwise by law.</h2>
+  <h2>12. Term and termination
+These Terms apply while the App is installed. Either party may terminate by uninstalling / withdrawing the App. Sections that by their nature should survive (disclaimers, limitation of liability, governing law, and these survival provisions) survive termination.</h2>
+  <h2>13. Governing law and disputes</h2>
+  <p>These Terms are governed by the laws of Japan, with exclusive jurisdiction in the Tokyo District Court as the court of first instance, to the extent permitted by mandatory provisions of applicable law.</p>
+  <h2>14. Relationship to Atlassian terms
+Your use of Atlassian products and the Marketplace is separately governed by Atlassian's terms. Nothing here overrides Atlassian's terms; in case of conflict regarding the platform, Atlassian's terms govern the platform relationship.</h2>
+  <h2>15. Entire agreement; severability
+These Terms are the entire agreement between you and the Provider regarding the App. If any provision is held unenforceable, the remainder remains in effect and the unenforceable provision is limited to the minimum extent necessary.</h2>
+  <h2>16. Contact
+Kazunari Itagaki, <a href="mailto:support@complydraft.com">support@complydraft.com</a>.</h2>
+  <p>---</p>
 </div>
 <footer>
   CRA Reporting Copilot is a compliance-support tool. It does not provide legal advice and does not guarantee fulfillment of your reporting obligations. Responsibility for what you submit remains with you.
