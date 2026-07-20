@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support &amp; FAQ — CRA Reporting Copilot</title>
+<meta name="description" content="Frequently asked questions for CRA Reporting Copilot: installation, permissions, data location, KEV snapshot, deadlines, plans and responsibility.">
+<style>
+  :root{
+    --ink:#16233b; --ink-soft:#4a5872; --line:#dde3ee; --accent:#0b5cd6;
+    --bg:#ffffff; --bg-soft:#f5f8fd; --warn-bg:#fdf6e7; --warn-line:#e6c86e;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  a{color:var(--accent)}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .top{border-top:4px solid var(--accent)}
+  .wrap{max-width:46rem;margin:0 auto;padding:2rem 1.25rem 3rem}
+  .crumb{font-size:.88rem;color:var(--ink-soft)}
+  h1{font-size:1.5rem;letter-spacing:-.01em;margin:.4rem 0 1rem}
+  h2{font-size:1.12rem;margin:2.2rem 0 .6rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+  h3{font-size:1rem;margin:1.35rem 0 .35rem}
+  p{margin:.4rem 0}
+  .disclaimer{border:1px solid var(--warn-line);background:var(--warn-bg);border-radius:8px;
+    padding:.85rem 1rem;font-size:.92rem;margin:0 0 1.5rem}
+  table{border-collapse:collapse;width:100%;font-size:.92rem;margin:.6rem 0}
+  th,td{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}
+  th{background:var(--bg-soft)}
+  code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+  footer{max-width:46rem;margin:0 auto;padding:1.25rem;border-top:1px solid var(--line);
+    color:var(--ink-soft);font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="top"></div>
+<div class="wrap">
+  <p class="crumb"><a href="index.html">CRA Reporting Copilot</a> / Support &amp; FAQ</p>
+  <h1>Support &amp; FAQ</h1>
+
+  <div class="disclaimer">
+    This product is a compliance-support tool, not legal advice. It does not determine, submit, or guarantee compliance with CRA (Regulation (EU) 2024/2847) reporting obligations. You (the manufacturer) remain responsible for all reporting decisions, submissions, and deadlines. Verify all outputs and consult a qualified professional.
+  </div>
+
+  <h2>Getting started</h2>
+
+  <h3>What does CRA Reporting Copilot do?</h3>
+  <p>It helps teams that run incident response in Jira or Jira Service Management prepare EU Cyber Resilience Act (CRA) Article 14 reports and notifications. From a ticket, it helps identify cases that may be reportable, tracks each staged deadline from the correct start point, and generates draft reports and notifications for your team to review, export, and submit. It is a support tool — it does not file anything for you and does not decide borderline cases on your behalf.</p>
+
+  <h3>Which products does it work with?</h3>
+  <p>Jira and Jira Service Management (Cloud). It installs as an Atlassian Forge app.</p>
+
+  <h3>How do I install it?</h3>
+  <p>Install it from the Atlassian Marketplace like any Forge app. Your Jira site admin approves the requested permissions once, and the app appears in your project. No external account, API key, or connector setup is required.</p>
+
+  <h3>What permissions does it request, and why so few?</h3>
+  <p>Two, and only two: <strong>read access to Jira work data</strong> (<code>read:jira-work</code>) so it can read the issues and requests you point it at, and <strong>app storage</strong> (<code>storage:app</code>) so it can keep your register, logs, and drafts inside your Atlassian tenant. It requests no write access to your issues and no external network (egress) permission at all. The short permission list is deliberate — it is what lets the app run entirely on Atlassian.</p>
+
+  <h3>Do I need to connect anything external — an API key, an LLM, a data feed?</h3>
+  <p>No. There is nothing to connect. The app uses no large language model and no live external feed. Draft generation is template- and rule-based, and the Known Exploited Vulnerabilities (KEV) data ships inside the app as a snapshot (see below).</p>
+
+  <h2>Data location and trust</h2>
+
+  <h3>Does my incident data leave my Atlassian tenant?</h3>
+  <p>No. The app is built to the "Runs on Atlassian" model: it uses only Atlassian-hosted compute and storage and declares no external egress. Your issue data, drafts, register, and logs stay inside your tenant. The app has no developer-operated backend that processes your issue data.</p>
+
+  <h3>Where are my drafts and register stored?</h3>
+  <p>In Forge app storage, inside your Atlassian tenant. They are not copied to any external system.</p>
+
+  <h3>Is there an audit trail?</h3>
+  <p>Yes. Every reporting action — draft generated, edited, exported — is written to an append-only log (who, when, what, which version). The log is designed so entries are added, not altered.</p>
+
+  <h3>Do you use AI / an LLM to write the reports?</h3>
+  <p>No. Drafts are produced from reviewed templates and rules, not a language model. This keeps generation deterministic and keeps the app within the zero-egress design. (A future bring-your-own-key LLM mode may be considered separately; it is not part of this version.)</p>
+
+  <h2>KEV snapshot</h2>
+
+  <h3>Where does the Known Exploited Vulnerabilities data come from, and is it live?</h3>
+  <p>It is a <strong>bundled snapshot</strong> of the public KEV catalog, shipped inside the app — not a live external feed. This is what keeps the app egress-free. The snapshot's date is shown in the app so you always know how fresh it is.</p>
+
+  <h3>How does the KEV snapshot get updated?</h3>
+  <p>Through app updates. When we publish a new release, the bundled snapshot is refreshed, and you receive it the same way you receive any Forge app update. Because it is a snapshot, treat it as a point-in-time reference: for the very latest entries, cross-check the authoritative public source. We show the snapshot date precisely so its freshness is never overstated.</p>
+
+  <h2>Reporting, deadlines, and responsibility</h2>
+
+  <h3>Which reports and notifications can it draft?</h3>
+  <p>The full Article 14 set: the 24-hour early warning, the 72-hour notification, the final report, the notice to affected users, and — where a third-party component is involved — the notice to the upstream component maker.</p>
+
+  <h3>How does it handle the deadlines?</h3>
+  <p>Each stage counts down from its correct start point. The two final-report start points differ and the app keeps them distinct: for a vulnerability, the final report is tracked to <strong>14 days after a corrective or mitigating measure is available</strong>; for a severe incident, to <strong>one month after the 72-hour notification is submitted</strong> — not one month after you became aware. You enter the start events; the app tracks the clocks and displays alerts as deadlines approach.</p>
+
+  <h3>When does the clock start — how does the app know when we "became aware"?</h3>
+  <p>It doesn't decide that for you. The point at which you "become aware" is a judgment that depends on official guidance, so the app asks you to confirm the awareness time and starts the count from what you enter. Cases near a boundary are flagged for human confirmation rather than resolved automatically.</p>
+
+  <h3>Does the app submit the report to the authorities for me?</h3>
+  <p>No. The app never files anything. You export the draft (PDF or JSON) and submit it yourself through the appropriate channel. This is by design: the app writes the draft, a person reviews and submits it.</p>
+
+  <h3>Who is responsible for actually meeting the reporting obligation?</h3>
+  <p>You are. CRA Reporting Copilot supports your process; it does not assume your legal obligation. Responsibility for whether, what, and when you report — and for notifying affected users — remains with your organization.</p>
+
+  <h3>Who is responsible for notifying affected users?</h3>
+  <p>You are. The app drafts the affected-user notice so you can send it promptly, but the duty to notify users sits with you as the manufacturer. (Note that where a manufacturer fails to inform users of an actively exploited vulnerability, the coordinating CSIRT may, if it judges it proportionate and necessary, inform users directly — another reason not to let that draft sit.)</p>
+
+  <h3>The final report format / submission platform — is that settled?</h3>
+  <p>The staged deadlines and the report contents follow the regulation. The ENISA single reporting platform (the intended single point of submission) is still having its registration procedure and templates finalized, so the app is deliberate about not hard-coding a submission form: you export the draft and submit through the current official channel. Templates are built to be updatable as the platform's format is published, and we track those updates.</p>
+
+  <h2>Plans and pricing</h2>
+
+  <h3>What's free and what's paid?</h3>
+  <p>The <strong>Readiness Check</strong> — product inventory (including legacy products already on the market), an eligibility check against your Jira/JSM, and a deadline preview — is free. <strong>Reporting &amp; Notifications</strong> (the five drafts, countdowns, export) and the <strong>Vulnerability Register &amp; Drills</strong> (standing register, KEV match, tabletop drill mode, report archive) are on the paid plans.</p>
+  <!-- NOTE(A-3): if the Marketplace pricing setup ends up NOT supporting a free tier,
+       replace the paragraph above with the trial-framing variant from the submission copy pack. -->
+
+  <h3>How is it priced, and where do I pay?</h3>
+  <p>Through Atlassian. Billing is handled by the Atlassian Marketplace on your existing Atlassian bill — there is no separate checkout with us. Pricing follows Atlassian's standard per-user tiering across plan levels; see the current figures on the Marketplace listing.</p>
+
+  <h3>Is there a trial?</h3>
+  <p>Paid plans follow the standard Atlassian Marketplace trial. Start it from the listing or the in-app upgrade screen.</p>
+
+  <h2>Practical / legal</h2>
+
+  <h3>Is this legal advice?</h3>
+  <p>No. It is a compliance-support tool. It does not provide legal advice and does not guarantee that your obligations are met. Confirm regulatory interpretation with qualified counsel.</p>
+
+  <h3>Can I practice without filing anything real?</h3>
+  <p>Yes. The tabletop drill mode runs the whole flow — mock incident, draft generation, deadline tracking — without submitting anything. Drafts produced in drill mode carry a visible training watermark, so a practice draft can never be mistaken for a real filing. It is meant for rehearsing your process between real incidents.</p>
+
+  <h3>Do you support Data Center or Server?</h3>
+  <p>The app targets Atlassian Cloud (Forge). Data Center / Server are not supported.</p>
+
+  <h2>Contact</h2>
+  <p>Email <a href="mailto:support@complydraft.com">support@complydraft.com</a> and we will respond within 2 business days.<br>
+  Please include your site URL and, where relevant, the case ID shown in the app.</p>
+</div>
+<footer>
+  CRA Reporting Copilot is a compliance-support tool. It does not provide legal advice and does not guarantee fulfillment of your reporting obligations. Responsibility for what you submit remains with you.
+</footer>
+</body>
+</html>

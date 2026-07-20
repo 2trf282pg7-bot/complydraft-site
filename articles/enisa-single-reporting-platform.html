@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ENISA's Single Reporting Platform: what is settled, what isn't, and how to prepare before 11 September 2026</title>
+<meta name="description" content="The state of the CRA's single reporting platform under Article 16: what the regulation establishes, what ENISA has published, what is still being finalized, and how to prepare without waiting.">
+<style>
+  :root{--ink:#16233b;--ink-soft:#4a5872;--line:#dde3ee;--accent:#0b5cd6;--bg:#fff;--bg-soft:#f5f8fd}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:var(--accent)} a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .top{border-top:4px solid var(--accent)}
+  .wrap{max-width:44rem;margin:0 auto;padding:2rem 1.25rem 3rem}
+  .crumb{font-size:.88rem;color:var(--ink-soft)}
+  h1{font-size:1.55rem;line-height:1.3;letter-spacing:-.01em;margin:.4rem 0 .3rem}
+  .meta{color:var(--ink-soft);font-size:.88rem;margin:0 0 1.4rem}
+  h2{font-size:1.15rem;margin:1.9rem 0 .5rem}
+  p{margin:.55rem 0} ul,ol{padding-left:1.3rem} li{margin:.3rem 0}
+  table{border-collapse:collapse;width:100%;font-size:.9rem;margin:.7rem 0}
+  th,td{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}
+  th{background:var(--bg-soft)}
+  .cta{border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;background:var(--bg-soft);padding:.9rem 1.1rem;margin:2rem 0 0;font-size:.94rem}
+  .sources{font-size:.86rem;color:var(--ink-soft);margin-top:1.8rem;border-top:1px solid var(--line);padding-top:1rem}
+  footer{max-width:44rem;margin:0 auto;padding:1.25rem;border-top:1px solid var(--line);color:var(--ink-soft);font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="top"></div>
+<div class="wrap">
+  <p class="crumb"><a href="../index.html">CRA Reporting Copilot</a> / Guides</p>
+  <h1>ENISA's Single Reporting Platform: what is settled, what isn't, and how to prepare before 11 September 2026</h1>
+  <p class="meta">July 2026 · 5 min read · reflects public information as of early July 2026</p>
+
+  <p>When the Cyber Resilience Act's reporting duty applies on <strong>11 September 2026</strong>, manufacturers will not be choosing where to send their Article 14 reports case by case. Regulation (EU) 2024/2847 establishes, in Article 16, a <strong>single reporting platform</strong> set up and maintained by ENISA — one submission that reaches both the coordinating CSIRT and ENISA. For teams building their reporting process now, the practical question is what can be relied on today versus what is still moving. The honest answer has three layers.</p>
+
+  <h2>Settled: what the regulation itself fixes</h2>
+  <ul>
+    <li><strong>The mechanism exists by law.</strong> Art. 16(1) tasks ENISA with establishing the platform; the single-entry-point model — report once, reach the coordinating CSIRT and ENISA — is the regulation's design, not a proposal.</li>
+    <li><strong>The timeline.</strong> The Article 14 reporting obligations apply from 11 September 2026 (Art. 71(2)). This date is fixed in the regulation.</li>
+    <li><strong>The staged content structure.</strong> What each stage must convey — early warning within 24 hours, notification within 72 hours, final report with its two path-dependent start points — is written into Art. 14 and does not depend on the platform's implementation details.</li>
+  </ul>
+
+  <h2>Published: what ENISA has put out</h2>
+  <p>ENISA has published an overview of the <strong>reporting data items per stage</strong> — which fields are expected at the early-warning, notification, and final-report stages, with markings distinguishing mandatory, optional, conditional, and known-at-the-time items. This is the most useful artifact currently available for template building: it lets you structure your internal drafts so the facts are already organised the way the platform expects to receive them. ENISA has also begun providing preparatory material for manufacturers ahead of the go-live, with a testing period planned before the platform takes real reports.</p>
+
+  <h2>Being finalized: what not to hard-code</h2>
+  <p>The registration procedure — how a manufacturer gets an account, what identity information is required — and the exact submission forms are still being finalized as of this writing. Two practical consequences:</p>
+  <ul>
+    <li><strong>Don't build automation against an interface that isn't stable.</strong> Any tooling or internal process that hard-codes a submission form today is building on sand. The resilient posture for 2026 is <em>export-and-submit</em>: your process produces a complete, well-structured draft, and a human submits it through the official channel in whatever form that channel takes at go-live.</li>
+    <li><strong>Assign someone to watch.</strong> Registration details, form specifics, and test-period logistics will land in ENISA's public materials in the run-up to September. A recurring calendar slot — even biweekly — to check ENISA's platform pages and the European Commission's CRA reporting page costs fifteen minutes and prevents a scramble.</li>
+  </ul>
+
+  <h2>How to prepare without waiting</h2>
+  <table>
+    <tr><th>Do now</th><th>Why it's safe to do now</th></tr>
+    <tr><td>Structure internal draft templates around ENISA's published per-stage data items</td><td>The data items are public; the structure survives form changes</td></tr>
+    <tr><td>Fix the two final-report start points in your runbook (14 days after a measure is available / one month after the 72-hour submission)</td><td>Written in Art. 14(2)(c) and 14(4)(c); platform-independent</td></tr>
+    <tr><td>Prepare the affected-user and upstream-component notices alongside</td><td>Art. 14(8) and Art. 13(6) duties do not run through the platform's forms</td></tr>
+    <tr><td>Rehearse the flow once, ending at "export the draft"</td><td>The human-submits step is the part that won't change</td></tr>
+    <tr><td>Register / complete onboarding</td><td><em>When the procedure is published</em> — watch ENISA's pages</td></tr>
+  </table>
+
+  <div class="cta">
+    <strong>This is the posture CRA Reporting Copilot is built around:</strong> templates aligned to the published per-stage data items, designed to be updated as the platform's format lands; drafts exported as PDF/JSON for a human to submit; nothing auto-filed. The readiness check is free: <a href="../index.html">overview</a> · <a href="../docs.html">documentation</a>.
+  </div>
+
+  <div class="sources">
+    <strong>Sources:</strong> Regulation (EU) 2024/2847 (Cyber Resilience Act), Art. 14, 16(1), 71(2) — EUR-Lex; ENISA, Single Reporting Platform pages (enisa.europa.eu); European Commission, "Cyber Resilience Act — Reporting obligations" (digital-strategy.ec.europa.eu). Status statements reflect public information as of early July 2026; verify current status on the official pages.
+  </div>
+</div>
+<footer>
+  CRA Reporting Copilot is a compliance-support tool. This article is general information, not legal advice. Verify regulatory interpretation with qualified counsel.
+</footer>
+</body>
+</html>

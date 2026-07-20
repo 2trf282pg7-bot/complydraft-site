@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Choosing a CRA compliance tool for Article 14 reporting: build, buy, or work where your tickets live</title>
+<meta name="description" content="A framework for evaluating CRA Article 14 reporting tooling: spreadsheets, enterprise ASPM suites, generic GRC platforms, and ticket-native apps — with the evaluation criteria that actually matter.">
+<style>
+  :root{--ink:#16233b;--ink-soft:#4a5872;--line:#dde3ee;--accent:#0b5cd6;--bg:#fff;--bg-soft:#f5f8fd}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:var(--accent)} a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .top{border-top:4px solid var(--accent)}
+  .wrap{max-width:44rem;margin:0 auto;padding:2rem 1.25rem 3rem}
+  .crumb{font-size:.88rem;color:var(--ink-soft)}
+  h1{font-size:1.55rem;line-height:1.3;letter-spacing:-.01em;margin:.4rem 0 .3rem}
+  .meta{color:var(--ink-soft);font-size:.88rem;margin:0 0 1.4rem}
+  h2{font-size:1.15rem;margin:1.9rem 0 .5rem}
+  p{margin:.55rem 0} ul,ol{padding-left:1.3rem} li{margin:.3rem 0}
+  table{border-collapse:collapse;width:100%;font-size:.88rem;margin:.7rem 0}
+  th,td{border:1px solid var(--line);padding:.5rem .55rem;text-align:left;vertical-align:top}
+  th{background:var(--bg-soft)}
+  .cta{border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;background:var(--bg-soft);padding:.9rem 1.1rem;margin:2rem 0 0;font-size:.94rem}
+  .sources{font-size:.86rem;color:var(--ink-soft);margin-top:1.8rem;border-top:1px solid var(--line);padding-top:1rem}
+  footer{max-width:44rem;margin:0 auto;padding:1.25rem;border-top:1px solid var(--line);color:var(--ink-soft);font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="top"></div>
+<div class="wrap">
+  <p class="crumb"><a href="../index.html">CRA Reporting Copilot</a> / Guides</p>
+  <h1>Choosing a CRA compliance tool for Article 14 reporting: build, buy, or work where your tickets live</h1>
+  <p class="meta">July 2026 · 7 min read</p>
+
+  <p>With the Cyber Resilience Act's reporting duty applying from <strong>11 September 2026</strong>, teams are deciding how to operationalise Article 14 of Regulation (EU) 2024/2847. The honest starting point: you do not strictly need to buy anything. A disciplined team with a runbook, a calendar, and templates can comply. The question is what failure looks like under pressure, and which class of tooling removes which failure mode. This is a framework, written by the developer of one of the options — bias declared, criteria first.</p>
+
+  <h2>What Article 14 actually demands of tooling</h2>
+  <p>Strip the regulation to its operational skeleton and a tool must do five things: (1) help decide whether a case is reportable — actively exploited vulnerability (Art. 14(1)) or severe incident (Art. 14(3), framed by 14(5)); (2) run the staged clocks correctly, including the two different final-report start points — 14 days after a corrective or mitigating measure is available on the vulnerability path (Art. 14(2)(c)), one month after the 72-hour notification is submitted on the incident path (Art. 14(4)(c)); (3) produce the five documents — three authority stages plus the affected-user notice (Art. 14(8)) and the upstream component-maker notice (Art. 13(6)); (4) keep an audit trail that survives scrutiny; (5) not create a new data-protection problem while doing all of the above.</p>
+
+  <h2>The four approaches</h2>
+  <table>
+    <tr><th></th><th>Runbook + spreadsheet</th><th>Enterprise ASPM / product-security suite</th><th>Generic GRC platform</th><th>Ticket-native app (inside Jira/JSM)</th></tr>
+    <tr><td><strong>Cost shape</strong></td><td>Free; pays in attention</td><td>Typically quoted; often five figures annually</td><td>Mid; per-seat</td><td>Low; per-user via marketplace billing</td></tr>
+    <tr><td><strong>Article 14 depth</strong></td><td>As deep as your runbook</td><td>Strong on vulnerability discovery; reporting workflow depth varies — verify the two final-report clocks specifically</td><td>Strong on evidence storage; CRA-specific deadline logic usually configured by you</td><td>Purpose-built for the staged clocks and the five drafts; narrow by design</td></tr>
+    <tr><td><strong>Where the work happens</strong></td><td>Wherever the spreadsheet is</td><td>A separate console</td><td>A separate portal</td><td>In the incident ticket itself</td></tr>
+    <tr><td><strong>Data residency</strong></td><td>Yours</td><td>Vendor cloud — review the DPA</td><td>Vendor cloud — review the DPA</td><td>Can be tenant-contained (verify: no external egress)</td></tr>
+    <tr><td><strong>Audit trail</strong></td><td>Manual discipline</td><td>Usually strong</td><td>Usually strong</td><td>Verify: append-only, per-action</td></tr>
+    <tr><td><strong>Fits best</strong></td><td>Single product, rare incidents, strong discipline</td><td>Large portfolios already buying ASPM</td><td>Orgs standardised on one GRC for many regimes</td><td>Teams whose incident response already runs in Jira/JSM</td></tr>
+  </table>
+
+  <h2>Evaluation questions that separate the field</h2>
+  <ol>
+    <li><strong>Ask the two-clocks question first.</strong> "Show me how the tool anchors the vulnerability final report versus the incident final report." A tool that counts both from awareness has not read Art. 14(2)(c) and 14(4)(c). This single question eliminates more options than any feature list.</li>
+    <li><strong>Where does incident data go?</strong> Your Article 14 evidence is, by definition, sensitive security data. A reporting tool that ships it to a third-party cloud adds a vendor to your threat model at the worst possible moment. Ask for the egress story in writing.</li>
+    <li><strong>Who decides borderline cases?</strong> Whether an incident is "severe" under Art. 14(5), and when you "became aware," are judgment calls whose interpretation depends on official guidance. Be wary of tooling that auto-decides them; the responsible pattern is flagging for human confirmation.</li>
+    <li><strong>Does it file for you?</strong> Automatic submission sounds attractive and is premature: the ENISA single reporting platform (established under Art. 16) is still having its registration procedures and templates finalized. An export-and-submit posture, with a human pressing the button, is the honest design for 2026.</li>
+    <li><strong>What happens between incidents?</strong> Reporting tools are used rarely by definition. Ask what the tool does in normal times — vulnerability registers, exploited-vulnerability catalog matching, tabletop rehearsal — or accept that it will be shelfware whose runbook nobody remembers.</li>
+    <li><strong>Does it cover the notices, not just the reports?</strong> The affected-user notice (with the CSIRT able to inform users directly if you fail to — Art. 14(8)) and the upstream component notice (Art. 13(6)) are the parts teams forget. Five documents, not three.</li>
+  </ol>
+
+  <h2>The uncomfortable summary</h2>
+  <p>The regulation's penalties (up to €15 million or 2.5% of worldwide annual turnover, whichever is higher) make Article 14 a board-level topic, but the operational risk is mundane: a miscalendared start point, a user notice that sat in a drawer, an awareness timestamp reconstructed from memory. Choose the approach that removes <em>your</em> most likely mundane failure — for teams already living in Jira or JSM, that is usually the approach that never asks responders to leave the ticket.</p>
+
+  <div class="cta">
+    <strong>Full disclosure and a free way to test the fit:</strong> CRA Reporting Copilot is the ticket-native column of this table — Jira/JSM-native, zero-egress by design, two clocks modeled as the regulation writes them. Its readiness check is free, so you can evaluate the approach against your own tickets before deciding anything: <a href="../index.html">overview</a> · <a href="../docs.html">documentation</a>.
+  </div>
+
+  <div class="sources">
+    <strong>Sources:</strong> Regulation (EU) 2024/2847 (Cyber Resilience Act), Art. 13(6), 14(1)–(8), 16, 64, 71(2) — EUR-Lex; European Commission, "Cyber Resilience Act — Reporting obligations"; ENISA, Single Reporting Platform pages.
+  </div>
+</div>
+<footer>
+  CRA Reporting Copilot is a compliance-support tool. This article is general information, not legal advice. Verify regulatory interpretation with qualified counsel.
+</footer>
+</body>
+</html>

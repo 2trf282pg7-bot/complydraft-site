@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CRA Reporting Copilot — Support &amp; Documentation</title>
+<meta name="description" content="Support, documentation, privacy policy and terms for CRA Reporting Copilot, a Forge app for Jira and Jira Service Management.">
+<style>
+  :root{
+    --ink:#16233b; --ink-soft:#4a5872; --line:#dde3ee; --accent:#0b5cd6;
+    --accent-ink:#083d8f; --bg:#ffffff; --bg-soft:#f5f8fd; --ok:#0a7a45;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  a{color:var(--accent)}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .top{border-top:4px solid var(--accent)}
+  header{max-width:46rem;margin:0 auto;padding:2.5rem 1.25rem 0}
+  .brand{display:flex;align-items:center;gap:.75rem}
+  .mark{width:40px;height:40px;border-radius:9px;background:linear-gradient(135deg,#2f7bff,#0b3f9e);
+    display:inline-flex;align-items:center;justify-content:center;flex:none}
+  .mark svg{width:22px;height:22px}
+  h1{font-size:1.55rem;line-height:1.25;margin:.2rem 0 0;letter-spacing:-.01em}
+  .sub{color:var(--ink-soft);margin:.15rem 0 0;font-size:.95rem}
+  main{max-width:46rem;margin:0 auto;padding:1.5rem 1.25rem 3rem}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:1.6rem}
+  @media(max-width:560px){.cards{grid-template-columns:1fr}}
+  .card{display:block;border:1px solid var(--line);border-radius:10px;padding:1rem 1.1rem;background:var(--bg)}
+  .card h2{font-size:1.02rem;margin:0 0 .3rem}
+  .card p{margin:0;color:var(--ink-soft);font-size:.92rem}
+  .trust{margin-top:2rem;border:1px solid var(--line);border-left:4px solid var(--ok);
+    border-radius:8px;padding: .85rem 1rem;background:var(--bg-soft);font-size:.9rem;color:var(--ink-soft)}
+  .contact{margin-top:1.6rem;font-size:.95rem}
+  h2.sec{font-size:1.08rem;margin:2.2rem 0 .6rem;padding-top:1.4rem;border-top:1px solid var(--line)}
+  ul.guides{list-style:none;padding:0;margin:.4rem 0}
+  ul.guides li{margin:.55rem 0;padding-left:1rem;position:relative}
+  ul.guides li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:2px;background:var(--accent)}
+  ul.guides .desc{display:block;color:var(--ink-soft);font-size:.88rem}
+  .magnet{border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;
+    background:var(--bg-soft);padding:.9rem 1.1rem;margin-top:1.2rem;font-size:.94rem}
+  footer{max-width:46rem;margin:0 auto;padding:1.25rem;border-top:1px solid var(--line);
+    color:var(--ink-soft);font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="top"></div>
+<header>
+  <div class="brand">
+    <span class="mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="6.6" y="6.6" width="10.8" height="10.8" rx="2.2" transform="rotate(45 12 12)" stroke="#fff" stroke-width="2.1"/></svg>
+    </span>
+    <div>
+      <h1>CRA Reporting Copilot</h1>
+      <p class="sub">for Jira &amp; Jira Service Management · by Kazunari Itagaki</p>
+    </div>
+  </div>
+</header>
+<main>
+  <p>Draft CRA Article 14 reports and notifications inside Jira and Jira Service Management — staged deadlines tracked from the correct start point, and your incident data never leaves your tenant.</p>
+
+  <div class="cards">
+    <a class="card" href="support.html">
+      <h2>Support &amp; FAQ</h2>
+      <p>Installation, permissions, data location, KEV snapshot, deadlines, plans, and who is responsible for what.</p>
+    </a>
+    <a class="card" href="docs.html">
+      <h2>Documentation</h2>
+      <p>How to use the Readiness Check, Reporting &amp; Notifications, and the Vulnerability Register &amp; Drills.</p>
+    </a>
+    <a class="card" href="privacy.html">
+      <h2>Privacy policy</h2>
+      <p>How the app handles data — built to the Runs on Atlassian model with no external egress.</p>
+    </a>
+    <a class="card" href="terms.html">
+      <h2>Terms of use (EULA)</h2>
+      <p>License terms, disclaimers, and limitations for using the app.</p>
+    </a>
+  </div>
+
+  <div class="trust">
+    These pages practice what the app promises: static HTML only — no cookies, no analytics, no external fonts or scripts, nothing loaded from third parties.
+  </div>
+
+  <h2 class="sec">Guides on CRA Article 14 reporting</h2>
+  <ul class="guides">
+    <li><a href="articles/cra-incident-reporting-jira.html">CRA incident reporting in Jira: mapping Article 14 to your tickets</a>
+      <span class="desc">Where the report is actually born, the two final-report clocks, and what to capture in tickets before September.</span></li>
+    <li><a href="articles/cra-article-14-vulnerability-report.html">The CRA Article 14 vulnerability report: what to file, and when the clocks really start</a>
+      <span class="desc">The actively-exploited path in depth — including the pending final-report clock that waits for a fix.</span></li>
+    <li><a href="articles/cra-24-hour-reporting-enisa.html">24-hour reporting under the CRA: what the early warning actually requires</a>
+      <span class="desc">A signal, not an analysis — and the two decisions that actually consume the 24 hours.</span></li>
+    <li><a href="articles/cra-compliance-tool.html">Choosing a CRA compliance tool: build, buy, or work where your tickets live</a>
+      <span class="desc">A comparison framework with the evaluation questions that separate the field, bias declared.</span></li>
+    <li><a href="articles/enisa-single-reporting-platform.html">ENISA's Single Reporting Platform: what is settled, what isn't</a>
+      <span class="desc">Three layers of certainty, and how to prepare without hard-coding a moving target.</span></li>
+  </ul>
+
+  <div class="magnet">
+    <strong>Free checklist (PDF):</strong> <a href="CRA_Article14_Readiness_Checklist.pdf">CRA Article 14 Reporting Readiness Checklist</a> — product inventory (including legacy products), reportability judgment, the staged deadlines with both start points, user and upstream notices, and single-reporting-platform preparation. Source-referenced; not legal advice.
+  </div>
+
+  <p class="contact"><strong>Support contact:</strong> <a href="mailto:support@complydraft.com">support@complydraft.com</a><br>
+  Response target: within 2 business days.</p>
+</main>
+<footer>
+  CRA Reporting Copilot is a compliance-support tool. It does not provide legal advice and does not guarantee fulfillment of your reporting obligations. Responsibility for what you submit remains with you.
+</footer>
+</body>
+</html>

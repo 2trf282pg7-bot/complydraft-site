@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Documentation — CRA Reporting Copilot</title>
+<meta name="description" content="How to use CRA Reporting Copilot: Readiness Check, Reporting &amp; Notifications, Vulnerability Register &amp; Drills, deadlines reference, data and audit, troubleshooting.">
+<style>
+  :root{
+    --ink:#16233b; --ink-soft:#4a5872; --line:#dde3ee; --accent:#0b5cd6;
+    --bg:#ffffff; --bg-soft:#f5f8fd; --warn-bg:#fdf6e7; --warn-line:#e6c86e;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  a{color:var(--accent)}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .top{border-top:4px solid var(--accent)}
+  .wrap{max-width:46rem;margin:0 auto;padding:2rem 1.25rem 3rem}
+  .crumb{font-size:.88rem;color:var(--ink-soft)}
+  h1{font-size:1.5rem;letter-spacing:-.01em;margin:.4rem 0 1rem}
+  h2{font-size:1.12rem;margin:2.2rem 0 .6rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+  p{margin:.4rem 0}
+  ol{padding-left:1.3rem}
+  li{margin:.35rem 0}
+  .disclaimer{border:1px solid var(--warn-line);background:var(--warn-bg);border-radius:8px;
+    padding:.85rem 1rem;font-size:.92rem;margin:0 0 1.5rem}
+  table{border-collapse:collapse;width:100%;font-size:.9rem;margin:.6rem 0}
+  th,td{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}
+  th{background:var(--bg-soft)}
+  dt{font-weight:600;margin-top:.8rem}
+  dd{margin:0 0 .4rem}
+  footer{max-width:46rem;margin:0 auto;padding:1.25rem;border-top:1px solid var(--line);
+    color:var(--ink-soft);font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="top"></div>
+<div class="wrap">
+  <p class="crumb"><a href="index.html">CRA Reporting Copilot</a> / Documentation</p>
+  <h1>Documentation</h1>
+
+  <div class="disclaimer">
+    This product is a compliance-support tool, not legal advice. It does not determine, submit, or guarantee compliance with CRA (Regulation (EU) 2024/2847) reporting obligations. You (the manufacturer) remain responsible for all reporting decisions, submissions, and deadlines. Verify all outputs and consult a qualified professional.
+  </div>
+
+  <h2>1. Overview</h2>
+  <p>CRA Reporting Copilot has three parts. <strong>Readiness Check</strong> (free) tells you where you stand. <strong>Reporting &amp; Notifications</strong> (paid) turns a ticket into the Article 14 draft set with staged deadline tracking. <strong>Vulnerability Register &amp; Drills</strong> (paid) keeps a standing register, matches it against a bundled KEV snapshot, lets you rehearse in a drill, and archives past reports. Everything runs inside your Atlassian tenant; nothing is filed on your behalf.</p>
+
+  <h2>2. Readiness Check (free)</h2>
+  <ol>
+    <li>Open the app from your Jira or Jira Service Management project.</li>
+    <li><strong>Inventory your in-scope products.</strong> Add the products with digital elements you place on the EU market. Include legacy products already on the market — the reporting duty reaches them. The inventory questions guide scope; where scope is genuinely uncertain, the item is flagged for your confirmation rather than decided for you.</li>
+    <li><strong>Run the eligibility check.</strong> The app scans the Jira/JSM issues you point it at and surfaces incident and vulnerability types that could be reportable.</li>
+    <li><strong>Preview deadlines.</strong> For a case that could be reportable, the app previews the staged deadlines that would apply, including the correct final-report start point for the vulnerability vs. severe-incident path.</li>
+  </ol>
+  <p>The Readiness Check does not generate submittable drafts and does not export — it is the free way to see your exposure before moving to a paid plan.</p>
+
+  <h2>3. Reporting &amp; Notifications (paid)</h2>
+  <ol>
+    <li><strong>Open a ticket</strong> representing the incident or vulnerability.</li>
+    <li><strong>Set the start events.</strong> Enter the awareness time (and, for the vulnerability path, when a corrective/mitigating measure becomes available; for the incident path, when the 72-hour notification is submitted). The app uses these to start each clock. Awareness time is yours to confirm — the app does not infer it.</li>
+    <li><strong>Generate the draft set:</strong> 24-hour early warning, 72-hour notification, final report, affected-user notice, and — if a third-party component is involved — upstream-component-maker notice. Placeholders are filled from the ticket where possible.</li>
+    <li><strong>Review and edit.</strong> Drafts are drafts. Fields dependent on official guidance (e.g., anything keyed to "becomes aware") and any not-yet-confirmed submission-format fields are flagged for you to complete or confirm.</li>
+    <li><strong>Watch the countdowns.</strong> Each stage counts down from its correct start point, with alerts as deadlines approach. The vulnerability final report tracks to 14 days after a fix is available; the severe-incident final report tracks to one month after the 72-hour notification is submitted.</li>
+    <li><strong>Export and submit.</strong> Export as PDF or JSON and submit through the current official channel yourself. The app records the action in the append-only log and keeps the draft in the archive.</li>
+  </ol>
+
+  <h2>4. Vulnerability Register &amp; Drills (paid)</h2>
+  <dl>
+    <dt>Register</dt>
+    <dd>Maintain a list of your products and components. The app matches it against the bundled KEV snapshot and surfaces items that could be reportable, so you see exposure in normal times, not only during an incident. The snapshot date is shown on the register.</dd>
+    <dt>Drill mode</dt>
+    <dd>Inject a mock incident and run the full flow — draft generation, staged deadline tracking — as practice. Nothing is submitted, and every draft is stamped with a training watermark so it can't be confused with a real filing. Use it to rehearse before a real event.</dd>
+    <dt>Archive</dt>
+    <dd>Submitted and past drafts are searchable and reusable, so a later report can build on an earlier one.</dd>
+  </dl>
+
+  <h2>5. Understanding the deadlines (reference)</h2>
+  <table>
+    <tr><th>Path</th><th>Early warning</th><th>Notification</th><th>Final report — start point</th></tr>
+    <tr><td>Actively exploited <strong>vulnerability</strong></td><td>within 24 hours</td><td>within 72 hours</td><td>within <strong>14 days after a corrective or mitigating measure is available</strong></td></tr>
+    <tr><td>Severe <strong>incident</strong></td><td>within 24 hours</td><td>within 72 hours</td><td>within <strong>one month after the 72-hour notification is submitted</strong></td></tr>
+  </table>
+  <p>The final-report start points differ by path — this is the distinction the app keeps for you. In addition to reporting to the authorities, Article 14 requires notifying <strong>affected users</strong>, and where a third-party component is involved, the <strong>upstream component maker</strong>. The app drafts both notices. Interpretation of when you "become aware" is left to you and confirmed at entry.</p>
+
+  <h2>6. Data, storage, and audit</h2>
+  <p>The app runs on Atlassian-hosted compute and storage with no external egress. Your issue data, register, drafts, and logs stay in your tenant. There is no external LLM or live feed. Every reporting action is recorded in an append-only log. The KEV data is a bundled snapshot refreshed through app updates, with its date shown in the app.</p>
+
+  <h2>7. Troubleshooting</h2>
+  <dl>
+    <dt>The app can't see my issues.</dt>
+    <dd>Confirm the app was granted read access to Jira work data at install, and that you are pointing it at a project you can view. It requests no write access.</dd>
+    <dt>A draft field is blank or flagged.</dt>
+    <dd>Fields that depend on official guidance or on an as-yet-unconfirmed submission format are intentionally flagged for you to complete — they are not auto-filled.</dd>
+    <dt>KEV looks out of date.</dt>
+    <dd>Check the snapshot date shown on the register. The snapshot advances with app updates; for the very newest entries, cross-check the authoritative public source.</dd>
+    <dt>I can't find an export button in the free tier.</dt>
+    <dd>Export is a paid-plan feature; the Readiness Check is preview-only.</dd>
+  </dl>
+
+  <p style="margin-top:2rem">Questions not covered here: see the <a href="support.html">Support &amp; FAQ</a> page or email <a href="mailto:support@complydraft.com">support@complydraft.com</a>.</p>
+</div>
+<footer>
+  CRA Reporting Copilot is a compliance-support tool. It does not provide legal advice and does not guarantee fulfillment of your reporting obligations. Responsibility for what you submit remains with you.
+</footer>
+</body>
+</html>

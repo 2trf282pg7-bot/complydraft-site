@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>24-hour reporting under the CRA: what the early warning actually requires</title>
+<meta name="description" content="The EU Cyber Resilience Act's 24-hour early warning explained: what it is, what it is not, what ENISA's published data items suggest, and how to make the deadline survivable.">
+<style>
+  :root{--ink:#16233b;--ink-soft:#4a5872;--line:#dde3ee;--accent:#0b5cd6;--bg:#fff;--bg-soft:#f5f8fd}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:var(--accent)} a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .top{border-top:4px solid var(--accent)}
+  .wrap{max-width:44rem;margin:0 auto;padding:2rem 1.25rem 3rem}
+  .crumb{font-size:.88rem;color:var(--ink-soft)}
+  h1{font-size:1.55rem;line-height:1.3;letter-spacing:-.01em;margin:.4rem 0 .3rem}
+  .meta{color:var(--ink-soft);font-size:.88rem;margin:0 0 1.4rem}
+  h2{font-size:1.15rem;margin:1.9rem 0 .5rem}
+  p{margin:.55rem 0} ul,ol{padding-left:1.3rem} li{margin:.3rem 0}
+  .cta{border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;background:var(--bg-soft);padding:.9rem 1.1rem;margin:2rem 0 0;font-size:.94rem}
+  .sources{font-size:.86rem;color:var(--ink-soft);margin-top:1.8rem;border-top:1px solid var(--line);padding-top:1rem}
+  footer{max-width:44rem;margin:0 auto;padding:1.25rem;border-top:1px solid var(--line);color:var(--ink-soft);font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="top"></div>
+<div class="wrap">
+  <p class="crumb"><a href="../index.html">CRA Reporting Copilot</a> / Guides</p>
+  <h1>24-hour reporting under the CRA: what the early warning actually requires</h1>
+  <p class="meta">July 2026 · 5 min read</p>
+
+  <p>The number that dominates every Cyber Resilience Act briefing is 24. From <strong>11 September 2026</strong>, a manufacturer that becomes aware of an actively exploited vulnerability or a severe incident must submit an <strong>early warning within 24 hours</strong> (Art. 14(2)(a) and 14(4)(a) of Regulation (EU) 2024/2847). The number alarms teams because they hear "produce an incident report in a day." That is not what the provision asks — and misunderstanding it causes both panic and, paradoxically, delay.</p>
+
+  <h2>A signal, not an analysis</h2>
+  <p>The staged structure of Article 14 divides labour across time. The early warning's job is to tell the authorities that a reportable situation appears to be underway: what kind of event, which product, when you became aware, and a first indication of impact. The substance arrives later — the <strong>72-hour notification</strong> carries the fuller technical picture and interim measures, and the <strong>final report</strong> carries the analysis and corrective measures. ENISA's published overview of the reporting data items reflects this gradient: the required fields per stage grow from minimal at 24 hours toward comprehensive at the final report, with several items marked as due only when known.</p>
+  <p>Practically, this means an early warning is a short, mostly pre-writable document. If your team cannot produce it in 24 hours, the constraint is almost never missing information. It is a missing decision.</p>
+
+  <h2>The two decisions that consume the 24 hours</h2>
+  <ul>
+    <li><strong>Who confirms the clock has started.</strong> The window opens when the manufacturer "becomes aware." How that moment is interpreted in edge cases depends on official guidance, so a conservative posture — and a named role who confirms the timestamp and records the reasoning — beats a committee debate at hour six.</li>
+    <li><strong>Who may send an incomplete message.</strong> Engineering cultures resist shipping unfinished work, and an early warning is by design unfinished. Someone must hold explicit authority to send a document full of "under investigation."</li>
+  </ul>
+
+  <h2>Failure modes seen in rehearsals</h2>
+  <ol>
+    <li><strong>Waiting for the root cause.</strong> The most common. Teams sit on the early warning until they can answer questions that belong to the 72-hour notification or the final report. The regulation staged the timeline precisely so you do not have to know everything on day one.</li>
+    <li><strong>Debating severity past the deadline.</strong> For incidents, Art. 14(5) frames what "severe" means — impact on the availability, authenticity, integrity or confidentiality of sensitive data or key functions, or the introduction or execution of malicious code. Genuine boundary cases exist; a case that is still being argued at hour 20 should be escalated to a decision-maker, not re-analysed.</li>
+    <li><strong>Losing the awareness timestamp.</strong> Reconstructing when you "became aware" from chat scrollback, days later, is a bad position. Record it the moment the case opens.</li>
+    <li><strong>Forgetting the users.</strong> Alongside the authority track, Art. 14(8) requires informing impacted users of an actively exploited vulnerability — and if the manufacturer does not, the coordinating CSIRT may inform them directly where it considers that proportionate and necessary. Draft the user notice early; do not let it sit.</li>
+  </ol>
+
+  <h2>Making 24 hours boring</h2>
+  <p>Three preparations, each cheap:</p>
+  <ul>
+    <li><strong>A skeleton.</strong> Pre-agree the early-warning structure so hour one is a fill-in exercise, not composition.</li>
+    <li><strong>A rehearsal.</strong> One tabletop run of the full flow — mock ticket, early warning, 72-hour notification, user notice — before 11 September. Teams that rehearse once stop fearing the number.</li>
+    <li><strong>A recorded trigger.</strong> Capture the awareness time in the incident ticket itself, confirmed by the named role, so every later clock hangs off a defensible timestamp.</li>
+  </ul>
+
+  <div class="cta">
+    <strong>Rehearse it where your incidents live.</strong> CRA Reporting Copilot's tabletop drill mode runs the whole Article 14 flow from a mock Jira/JSM ticket — drafts, staged countdowns, user notice — without filing anything, and every practice draft carries a training watermark. The readiness check is free: <a href="../index.html">overview</a> · <a href="../docs.html">documentation</a>.
+  </div>
+
+  <div class="sources">
+    <strong>Sources:</strong> Regulation (EU) 2024/2847 (Cyber Resilience Act), Art. 14(2)(a), 14(4)(a), 14(5), 14(8), 71(2) — EUR-Lex; ENISA, Single Reporting Platform pages (reporting data items overview); European Commission, "Cyber Resilience Act — Reporting obligations".
+  </div>
+</div>
+<footer>
+  CRA Reporting Copilot is a compliance-support tool. This article is general information, not legal advice. Verify regulatory interpretation with qualified counsel.
+</footer>
+</body>
+</html>
