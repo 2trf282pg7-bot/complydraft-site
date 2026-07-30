@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://complydraft.com/sitemap.xml
