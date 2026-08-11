@@ -32,10 +32,11 @@
   <p class="crumb"><a href="index.html">CRA Reporting Copilot</a> / Privacy policy</p>
   <h1>Privacy Policy</h1>
 
-  <p><em>Last updated: 20 July 2026</em></p>
+  <p><em>Last updated: 11 August 2026</em></p>
 
-    <h2>1. Scope</h2>
+  <h2>1. Scope</h2>
   <p>This Privacy Policy explains how the Atlassian Forge app <strong>CRA Reporting Copilot</strong> (the "App"), provided by Kazunari Itagaki, handles data. The App is a compliance-support tool that assists manufacturers in meeting the reporting obligations under Article 14 of Regulation (EU) 2024/2847 (the Cyber Resilience Act, "CRA"). It is not legal advice, and the customer (the manufacturer) remains solely responsible for determining whether and when to report, for preparing submissions, and for meeting statutory deadlines.</p>
+
   <h2>2. Data-handling model: processing stays inside your Atlassian tenant</h2>
   <p>The App runs entirely on the <strong>Atlassian Forge</strong> platform inside <strong>your own Atlassian Cloud tenant</strong>. As a result:</p>
   <ul>
@@ -43,34 +44,43 @@
     <li>The App has <strong>no external network egress</strong>. It does not make outbound calls to the internet, to us, or to any analytics, advertising, or telemetry service.</li>
     <li>The App does <strong>not</strong> use any large language model (LLM) or other external AI service. All logic runs locally within Forge.</li>
   </ul>
+
   <h2>3. What the App accesses</h2>
   <p>The App requests only the following Forge scopes, and nothing more:</p>
   <ul>
     <li><strong><code>read:jira-work</code></strong> — read-only access to Jira work items so the App can analyze product/asset information relevant to CRA reporting. The App does not modify your Jira data through this scope.</li>
     <li><strong><code>storage:app</code></strong> — the App's own storage area inside your Atlassian tenant, used to hold the App's working data, classification results, drafts, and usage metrics.</li>
+    <li><strong><code>report:personal-data</code></strong> — required by the Atlassian Forge platform so that the App can report to Atlassian which user accounts it holds data for, enabling Atlassian's platform-level personal data reporting. This scope does not grant the App access to any data outside your tenant, and it does not transmit your Jira content anywhere.</li>
   </ul>
-  <p>The App does <strong>not</strong> request access to user account credentials, email contents, billing information, or any scope beyond the two listed above.</p>
+  <p>The App does <strong>not</strong> request access to user account credentials, email contents, billing information, or any scope beyond the three listed above.</p>
+
   <h2>4. Reference data (KEV and similar) is a bundled static snapshot</h2>
   <p>Reference datasets used for analysis (for example, a Known Exploited Vulnerabilities / "KEV"-type catalog) are shipped <strong>inside the App as a static snapshot</strong>. The App does <strong>not</strong> make any live external connection to fetch or refresh this data. Because the snapshot is fixed at the time of each App release, it may not reflect the most current published state of the source; the snapshot's as-of date is always shown in the App so its freshness is never overstated.</p>
+
   <h2>5. Measurement / usage metrics stay inside Forge Storage</h2>
   <p>Any usage measurement the App performs (for example, counts of analyses run, feature usage, or error events) is written <strong>only to <code>storage:app</code> inside your Atlassian tenant</strong>. Metrics are <strong>not</strong> transmitted to us or to any external analytics provider. We do not have a mechanism to read your in-tenant metrics remotely.</p>
-  <p><strong>** Separately from in-App metrics: as an Atlassian Marketplace vendor, the Provider receives from </strong>Atlassian** certain Marketplace-level information about installations and licenses (e.g., licensing/transaction reports used for billing and support). That information originates in Atlassian's Marketplace systems, not inside your tenant, and does not include your Jira content or the App's in-tenant metrics.</p>
+  <p>Separately from in-App metrics: as an <strong>Atlassian Marketplace vendor</strong>, the Provider receives from Atlassian certain Marketplace-level information about installations and licenses (for example, licensing and transaction reports used for billing and support). That information originates in Atlassian's Marketplace systems, not inside your tenant, and does not include your Jira content or the App's in-tenant metrics.</p>
+
   <h2>6. Retention</h2>
   <ul>
     <li><strong>In-tenant App data</strong> (classification results, drafts, working data, metrics) is retained inside your Atlassian tenant's <code>storage:app</code> for as long as the App is installed, or until you delete it, whichever is earlier.</li>
-    <li>On <strong>uninstall</strong>, App data in <code>storage:app</code> becomes <strong>immediately unavailable to the App</strong> — a reinstall does <strong>not</strong> automatically restore prior data; it starts empty. At the Atlassian platform level, the data is <strong>soft-deleted and retained for 28 days</strong>, after which it is disposed of under Atlassian's data retention and disposal policy. Recovery of the prior data is possible <strong>only</strong> via a manual Atlassian support request to re-link the data to a reinstalled App, submitted <strong>within 21 days of uninstallation</strong> and with the customer's consent; if no such request is made within that window, the data cannot be recovered. (The <strong>28-day</strong> platform retention window and the <strong>21-day</strong> deadline to *request* re-linking are two distinct periods.)</li>
+    <li>On <strong>uninstall</strong>, App data in <code>storage:app</code> becomes <strong>immediately unavailable to the App</strong> — a reinstall does <strong>not</strong> automatically restore prior data; it starts empty. At the Atlassian platform level, the data is <strong>soft-deleted and retained for 28 days</strong>, after which it is disposed of under Atlassian's data retention and disposal policy. Recovery of the prior data is possible <strong>only</strong> via a manual Atlassian support request to re-link the data to a reinstalled App, submitted <strong>within 21 days of uninstallation</strong> and with the customer's consent; if no such request is made within that window, the data cannot be recovered. (The <strong>28-day</strong> platform retention window and the <strong>21-day</strong> deadline to request re-linking are two distinct periods.)</li>
   </ul>
+
   <h2>7. No personal data sale; no advertising</h2>
   <p>We do not sell, rent, or share your data, and we do not use it for advertising. Because the App does not transmit your data out of your tenant, there is no data for us to sell or share.</p>
+
   <h2>8. Your role as data controller</h2>
   <p>Because processing occurs inside your Atlassian tenant, <strong>you (the customer) act as the controller</strong> of any personal data contained in your Jira work items that the App reads. The App is a tool operating within your environment rather than a service to which you transfer data.</p>
+
   <h2>8-bis. Personal data received via support</h2>
-  <p>When you contact support, information you choose to share with us (e.g., screenshots, exported files, log excerpts) may contain personal data. We process such information <strong>solely</strong> to handle your support request, and delete it after <code>90 days after the request is resolved</code>. This is separate from in-product processing, in which we do not receive your tenant content.</p>
+  <p>When you contact support, information you choose to share with us (for example, screenshots, exported files, or log excerpts) may contain personal data. We process such information <strong>solely</strong> to handle your support request, and delete it <strong>90 days after the request is resolved</strong>. This is separate from in-product processing, in which we do not receive your tenant content.</p>
+
   <h2>9. Contact</h2>
   <p>Questions about this Policy: <a href="mailto:support@complydraft.com">support@complydraft.com</a>.</p>
+
   <h2>10. Changes</h2>
   <p>We may update this Policy when the App changes. Material changes will be reflected in the version and date above.</p>
-  <p>---</p>
 </div>
 <footer>
   CRA Reporting Copilot is a compliance-support tool. It does not provide legal advice and does not guarantee fulfillment of your reporting obligations. Responsibility for what you submit remains with you.
